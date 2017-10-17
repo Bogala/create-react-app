@@ -99,7 +99,38 @@ module.exports = function(
     command = 'npm';
     args = ['install', '--save', verbose && '--verbose'].filter(e => e);
   }
-  args.push('react', 'react-dom');
+  args.push('react', 'react-dom', 'core-js');
+
+  // Install dev dependencies
+  const types = [
+    '@storybook/addon-actions',
+    '@storybook/addon-knobs',
+    '@storybook/addon-links',
+    '@storybook/react',
+    '@types/enzyme',
+    '@types/enzyme-adapter-react-16',
+    '@types/jest',
+    '@types/node',
+    '@types/react',
+    '@types/react-dom',
+    '@types/react-test-renderer',
+    '@types/storybook__addon-knobs',
+    '@types/storybook__react',
+    'enzyme',
+    'jest-enzyme',
+    'enzyme-adapter-react-16',
+    'react-test-renderer',
+    'storybook',
+  ];
+
+  console.log(`Installing ${types.join(', ')} as dev dependencies ${command}...`);
+  console.log();
+
+  const devProc = spawn.sync(command, args.concat('-D').concat(types), { stdio: 'inherit' });
+  if (devProc.status !== 0) {
+    console.error(`\`${command} ${args.concat(types).join(' ')}\` failed`);
+    return;
+  }
 
   // Install additional template dependencies, if present
   const templateDependenciesPath = path.join(
@@ -157,6 +188,14 @@ module.exports = function(
   console.log();
   console.log(chalk.cyan(`  ${displayedCommand} test`));
   console.log('    Starts the test runner.');
+  console.log();
+  console.log(chalk.cyan(`  ${displayedCommand} test -- --coverage`));
+  console.log('    Starts the test runner with coverage reporter.');
+  console.log();
+  console.log(
+    chalk.cyan(`  ${displayedCommand} ${useYarn ? '' : 'run '}storybook`)
+  );
+  console.log('    Starts storybook.');
   console.log();
   console.log(
     chalk.cyan(`  ${displayedCommand} ${useYarn ? '' : 'run '}eject`)

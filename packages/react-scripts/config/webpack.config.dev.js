@@ -19,6 +19,8 @@ const eslintFormatter = require('react-dev-utils/eslintFormatter');
 const ModuleScopePlugin = require('react-dev-utils/ModuleScopePlugin');
 const getClientEnvironment = require('./env');
 const paths = require('./paths');
+const {CheckerPlugin} = require('awesome-typescript-loader');
+const StyleLintPlugin = require('stylelint-webpack-plugin');
 
 // Webpack uses `publicPath` to determine where the app is being served from.
 // In development, we always serve from the root. This makes config easier.
@@ -114,6 +116,8 @@ module.exports = {
       // please link the files into your node_modules/ and let module-resolution kick in.
       // Make sure your source files are compiled, as they will not be processed in any way.
       new ModuleScopePlugin(paths.appSrc, [paths.appPackageJson]),
+      new CheckerPlugin(),
+      new StyleLintPlugin()
     ],
   },
   module: {
@@ -143,7 +147,20 @@ module.exports = {
             },
             loader: require.resolve('eslint-loader'),
           },
+          require.resolve('source-map-loader')
         ],
+        include: paths.appSrc,
+      },
+      {
+        test: /\.(ts|tsx)$/,
+        loader: require.resolve('tslint-loader'),
+        enforce: 'pre',
+        include: paths.appSrc,
+      },
+      {
+        test: /\.js$/,
+        loader: require.resolve('source-map-loader'),
+        enforce: 'pre',
         include: paths.appSrc,
       },
       {
@@ -177,6 +194,12 @@ module.exports = {
               // directory for faster rebuilds.
               cacheDirectory: true,
             },
+          },
+          // Compile .tsx?
+          {
+            test: /\.(ts|tsx)$/,
+            include: paths.appSrc,
+            loader: require.resolve('awesome-typescript-loader'),
           },
           // "postcss" loader applies autoprefixer to our CSS.
           // "css" loader resolves paths in CSS and adds assets as dependencies.
@@ -213,6 +236,39 @@ module.exports = {
                   ],
                 },
               },
+            ],
+          },
+          {
+            test: /\.scss$/,
+            use: [
+              require.resolve('style-loader'),
+              {
+                loader: require.resolve('css-loader'),
+                options: {
+                  importLoaders: 1,
+                },
+              },
+              {
+                loader: require.resolve('postcss-loader'),
+                options: {
+                  // Necessary for external CSS imports to work
+                  // https://github.com/facebookincubator/create-react-app/issues/2677
+                  ident: 'postcss',
+                  plugins: () => [
+                    require('postcss-flexbugs-fixes'),
+                    autoprefixer({
+                      browsers: [
+                        '>1%',
+                        'last 4 versions',
+                        'Firefox ESR',
+                        'not ie < 9', // React doesn't support IE8 anyway
+                      ],
+                      flexbox: 'no-2009',
+                    }),
+                  ],
+                },
+              },
+              require.resolve('sass-loader')
             ],
           },
           // "file" loader makes sure those assets get served by WebpackDevServer.

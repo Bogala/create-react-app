@@ -1,7 +1,7 @@
 {
-  "name": "react-scripts",
+  "name": "react-ats-scripts",
   "version": "1.0.14",
-  "description": "Configuration and scripts for Create React App.",
+  "description": "Configuration and scripts for Create React App with Storybook, TypeScript, Babel and Sass.",
   "repository": "facebookincubator/create-react-app",
   "license": "MIT",
   "engines": {
@@ -55,7 +55,18 @@
     "webpack": "3.5.1",
     "webpack-dev-server": "2.8.2",
     "webpack-manifest-plugin": "1.2.1",
-    "whatwg-fetch": "2.0.3"
+    "whatwg-fetch": "2.0.3",
+    "awesome-typescript-loader": "3.2.3",
+    "node-sass": "4.5.3",
+    "sass-loader": "6.0.6",
+    "stylelint-webpack-plugin": "0.9.0",
+    "stylelint": "8.2.0",
+    "stylelint-config-standard": "17.0.0",
+    "typescript": "2.5.3",
+    "tslint": "5.7.0",
+    "tslint-react": "3.2.0",
+    "ts-jest": "21.1.2",
+    "tslint-loader": "3.5.3"
   },
   "devDependencies": {
     "react": "^15.5.4",
