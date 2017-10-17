@@ -18,7 +18,7 @@
     "utils"
   ],
   "bin": {
-    "react-scripts": "./bin/react-scripts.js"
+    "react-ats-scripts": "./bin/react-ats-scripts.js"
   },
   "dependencies": {
     "autoprefixer": "7.1.2",
