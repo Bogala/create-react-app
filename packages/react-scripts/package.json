@@ -1,6 +1,6 @@
 {
   "name": "react-ats-scripts",
-  "version": "1.0.14",
+  "version": "1.0.15",
   "description": "Configuration and scripts for Create React App with Storybook, TypeScript, Babel and Sass.",
   "repository": "facebookincubator/create-react-app",
   "license": "MIT",
