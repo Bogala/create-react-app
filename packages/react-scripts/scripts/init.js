@@ -41,6 +41,8 @@ module.exports = function(
     build: 'react-ats-scripts build',
     test: 'react-ats-scripts test --env=jsdom',
     eject: 'react-ats-scripts eject',
+    storybook: 'start-storybook -p 6006',
+    'build-storybook': 'build-storybook'
   };
 
   fs.writeFileSync(
