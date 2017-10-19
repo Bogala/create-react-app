@@ -13,4 +13,4 @@ import { withKnobs } from '@storybook/addon-knobs';
 
 const stories = storiesOf('Pages', module);
 stories.addDecorator(withKnobs);
-stories.add('footer', () => <App />);  
+stories.add('app page', () => <App />);  

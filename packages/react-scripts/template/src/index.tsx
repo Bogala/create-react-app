@@ -1,6 +1,3 @@
-import 'af-toolkit-core/bootstrap/af-toolkit-core.css';
-import 'af-toolkit-core/assets/fonts/icons/af-icons.css';
-import './toolkit/af-toolkit.css';
 import 'core-js';
 
 import * as React from 'react';
