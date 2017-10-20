@@ -45,6 +45,10 @@ module.exports = function(
     'build-storybook': 'build-storybook'
   };
 
+  appPackage.jest = {
+    "collectCoverageFrom": ["src/**/*.tsx", "!src/stories/*.*", "!src/index.tsx"]
+  }
+
   fs.writeFileSync(
     path.join(appPath, 'package.json'),
     JSON.stringify(appPackage, null, 2)

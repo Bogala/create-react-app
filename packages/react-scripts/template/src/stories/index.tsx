@@ -1,16 +1,16 @@
-import 'af-toolkit-core/bootstrap/af-toolkit-core.css';
-import 'af-toolkit-core/assets/fonts/icons/af-icons.css';
-import '../toolkit/af-toolkit.scss';
-
 import * as React from 'react';
 
-import App from '../components/App';
+import { text, withKnobs } from '@storybook/addon-knobs';
+
 import { storiesOf } from '@storybook/react';
-import { withKnobs } from '@storybook/addon-knobs';
 
 // import { action } from '@storybook/addon-actions';
 // import { linkTo } from '@storybook/addon-links';
 
-const stories = storiesOf('Pages', module);
+const Welcome = ({person}) => (
+    <h1>Welcome {person}</h1>
+);
+
+const stories = storiesOf('Examples', module);
 stories.addDecorator(withKnobs);
-stories.add('app page', () => <App />);  
+stories.add('Welcome', () => <Welcome person={text('person', 'cher développeur')} />);  
