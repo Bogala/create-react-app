@@ -1,14 +1,26 @@
 {
   "name": "react-ats-scripts",
-  "version": "1.0.41",
+  "version": "1.0.42",
   "description": "Configuration and scripts for Create React App with Storybook, TypeScript, Babel and Sass.",
-  "repository": "facebookincubator/create-react-app",
+  "repository": "Bogala/create-react-app-awesome-ts",
   "license": "MIT",
+  "keywords": [
+    "create-react-app",
+    "react",
+    "reactjs",
+    "typescript",
+    "ts",
+    "awesome-typescript-loader",
+    "sass",
+    "webpack",
+    "starter",
+    "storybook"
+  ],
   "engines": {
     "node": ">=6"
   },
   "bugs": {
-    "url": "https://github.com/facebookincubator/create-react-app/issues"
+    "url": "https://github.com/Bogala/create-react-app-awesome-ts/issues"
   },
   "files": [
     "bin",
