@@ -46,7 +46,7 @@ module.exports = function(
   };
 
   appPackage.jest = {
-    "collectCoverageFrom": ["src/**/*.tsx", "!src/stories/*.*", "!src/index.tsx"]
+    "collectCoverageFrom": ["src/**/*.ts?(x)", "!src/stories/*.*", "!src/index.tsx", "!src/registerServiceWorker.ts"]
   }
 
   fs.writeFileSync(

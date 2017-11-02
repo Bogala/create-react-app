@@ -7,7 +7,7 @@ import { storiesOf } from '@storybook/react';
 // import { action } from '@storybook/addon-actions';
 // import { linkTo } from '@storybook/addon-links';
 
-const Welcome = ({person}) => (
+const Welcome = ({person}: {person: string}) => (
     <h1>Welcome {person}</h1>
 );
 
