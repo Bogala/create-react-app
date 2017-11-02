@@ -1,6 +1,6 @@
 {
   "name": "react-ats-scripts",
-  "version": "1.0.42",
+  "version": "1.0.43",
   "description": "Configuration and scripts for Create React App with Storybook, TypeScript, Babel and Sass.",
   "repository": "Bogala/create-react-app-awesome-ts",
   "license": "MIT",
@@ -14,7 +14,10 @@
     "sass",
     "webpack",
     "starter",
-    "storybook"
+    "storybook",
+    "enzyme",
+    "16",
+    "react16"
   ],
   "engines": {
     "node": ">=6"
