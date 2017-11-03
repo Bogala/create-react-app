@@ -1,6 +1,6 @@
 {
   "name": "react-ats-scripts",
-  "version": "1.0.43",
+  "version": "1.0.45",
   "description": "Configuration and scripts for Create React App with Storybook, TypeScript, Babel and Sass.",
   "repository": "Bogala/create-react-app-awesome-ts",
   "license": "MIT",
