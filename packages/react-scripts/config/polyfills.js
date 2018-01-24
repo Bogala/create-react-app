@@ -19,6 +19,9 @@ if (typeof Promise === 'undefined') {
 // fetch() polyfill for making API calls.
 require('whatwg-fetch');
 
+// CoreJS polyfills
+require('core-js');
+
 // React polyfills
 require('raf/polyfill');
 
