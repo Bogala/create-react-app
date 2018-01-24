@@ -108,7 +108,7 @@ module.exports = function(
     args = ['install', '--save', verbose && '--verbose'].filter(e => e);
     argsDev = ['install', '--save', verbose && '--verbose'].filter(e => e);
   }
-  args.push('react', 'react-dom', 'core-js');
+  args.push('react', 'react-dom');
 
   // Install dev dependencies
   const types = [

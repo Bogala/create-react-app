@@ -1,4 +1,3 @@
-import 'core-js';
 import 'jest-enzyme';
 
 import * as Adapter from 'enzyme-adapter-react-16';
