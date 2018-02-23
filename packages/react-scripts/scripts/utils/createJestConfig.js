@@ -21,7 +21,6 @@ module.exports = (resolve, rootDir, isEjecting) => {
   // TODO: I don't know if it's safe or not to just use / as path separator
   // in Jest configs. We need help from somebody with Windows to determine this.
   const config = {
-    mapCoverage: true,
     collectCoverageFrom: ['src/**/*.ts?(x), "!src/stories/*.*", "!src/index.tsx'],
     setupFiles: [resolve('config/polyfills.js')],
     setupTestFrameworkScriptFile: setupTestsFile,
@@ -43,7 +42,19 @@ module.exports = (resolve, rootDir, isEjecting) => {
     moduleNameMapper: {
       '^react-native$': 'react-native-web',
     },
-    moduleFileExtensions: ['web.ts', 'ts', 'web.tsx', 'tsx', 'web.js', 'js', 'json', 'web.jsx', 'jsx', 'node'],
+    moduleFileExtensions: [
+      'mjs',
+      'web.ts',
+      'ts',
+      'web.tsx',
+      'tsx',
+      'web.js',
+      'js',
+      'web.jsx',
+      'jsx',
+      'json',
+      'node',
+    ],
     globals: {
       'ts-jest': {
         tsConfigFile: paths.appTsTestConfig,

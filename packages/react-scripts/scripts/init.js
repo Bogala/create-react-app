@@ -197,7 +197,7 @@ module.exports = function(
   console.log(chalk.cyan(`  ${displayedCommand} test`));
   console.log('    Starts the test runner.');
   console.log();
-  console.log(chalk.cyan(`  ${displayedCommand} test -- --coverage`));
+  console.log(chalk.cyan(`  ${displayedCommand} test --coverage`));
   console.log('    Starts the test runner with coverage reporter.');
   console.log();
   console.log(
