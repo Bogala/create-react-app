@@ -43,7 +43,11 @@ let jestConfiguration = createJestConfig(
 );
 if (argv.indexOf('--withoutScenario') < 0) {
   const updateJestConfiguration = require('./utils/updateJestConfigWithScenarii');
-  jestConfiguration = updateJestConfiguration(jestConfiguration);
+  jestConfiguration = updateJestConfiguration(
+    jestConfiguration,
+    relativePath => path.resolve(__dirname, '..', relativePath),
+    path.resolve(paths.appSrc, '..')
+  );
 }
 argv.push(
   '--config',
