@@ -34,6 +34,8 @@ if (!process.env.CI && argv.indexOf('--coverage') < 0) {
 // @remove-on-eject-begin
 // This is not necessary after eject because we embed config into package.json.
 const createJestConfig = require('./utils/createJestConfig');
+const path = require('path');
+const paths = require('../config/paths');
 let jestConfiguration = createJestConfig(
   relativePath => path.resolve(__dirname, '..', relativePath),
   path.resolve(paths.appSrc, '..'),
@@ -43,8 +45,6 @@ if (argv.indexOf('--withoutScenario') < 0) {
   const updateJestConfiguration = require('./utils/updateJestConfigWithScenarii');
   jestConfiguration = updateJestConfiguration(jestConfiguration);
 }
-const path = require('path');
-const paths = require('../config/paths');
 argv.push(
   '--config',
   JSON.stringify(
