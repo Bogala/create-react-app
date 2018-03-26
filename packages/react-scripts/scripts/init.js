@@ -46,7 +46,15 @@ module.exports = function(
   };
 
   appPackage.jest = {
-    "collectCoverageFrom": ["src/**/*.ts?(x)", "!src/stories/*.*", "!src/index.tsx", "!src/registerServiceWorker.ts"]
+    "collectCoverageFrom": [
+      "src/**/*.ts?(x)",
+      "!src/**/*.d.ts",
+      "!src/**/*.stories.tsx",
+      "!src/**/*.impl.ts?(x)",
+      "!src/store/**/*.*",
+      "!src/index.tsx",
+      "!src/registerServiceWorker.ts"
+    ]
   }
 
   fs.writeFileSync(
@@ -98,17 +106,21 @@ module.exports = function(
   let command;
   let args;
   let argsDev;
+  let argsPlus;
 
   if (useYarn) {
     command = 'yarn';
     args = ['add'];
-    argsDev = ['add', '-D']
+    argsDev = ['add', '-D'];
+    argsPlus = ['add'];
   } else {
     command = 'npm';
     args = ['install', '--save', verbose && '--verbose'].filter(e => e);
     argsDev = ['install', '--save', verbose && '--verbose'].filter(e => e);
+    argsPlus = ['install', '--save', verbose && '--verbose'].filter(e => e);
   }
   args.push('react', 'react-dom');
+  argsPlus.push('recompose', 'redux', 'react-redux', 'rxjs', 'redux-observable', 'moment');
 
   // Install dev dependencies
   const types = [
@@ -125,11 +137,25 @@ module.exports = function(
     '@types/react-test-renderer',
     '@types/storybook__addon-knobs',
     '@types/storybook__react',
+    '@types/react-redux',
+    '@types/recompose',
+    '@types/redux',
+    '@types/redux-mock-store',
     'enzyme',
     'jest-enzyme',
     'enzyme-adapter-react-16',
     'react-test-renderer',
+    'redux-mock-store'
   ];
+
+  console.log(`Installing other dependencies ${command}...`);
+  console.log();
+
+  const plusProc = spawn.sync(command, argsPlus, { stdio: 'inherit' });
+  if (plusProc.status !== 0) {
+    console.error(`\`${command} ${argsPlus.join(' ')}\` failed`);
+    return;
+  }
 
   console.log(`Installing ${types.join(', ')} as dev dependencies ${command}...`);
   console.log();

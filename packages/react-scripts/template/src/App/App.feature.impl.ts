@@ -1,6 +1,4 @@
 import * as api from 'gherkin-specs-api';
-import * as React from 'react';
-import * as ReactDOM from 'react-dom';
 
 api.featureSteps(/descriptive text of what is desired/)
     .given(/some precondition/, () => { 

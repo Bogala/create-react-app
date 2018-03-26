@@ -11,12 +11,12 @@ import App from './';
 // tslint:disable-next-line:no-any
 configure({ adapter: new Adapter() });
 
-it('renders without crashing', () => {
+test('renders without crashing', () => {
   const div = document.createElement('div');
   ReactDOM.render(<App />, div);
 });
 
-it('App component contains an element with container css class', () => {
+test('App component contains an element with container css class', () => {
   const wrapper = shallow(<App />);
   expect(wrapper.find('.App')).toHaveLength(1);
 });
