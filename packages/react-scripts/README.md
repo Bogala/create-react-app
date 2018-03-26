@@ -6,6 +6,7 @@ This is a scripts version of [Create React App](https://github.com/facebookincub
 * Sass
 * Unit testing with Jest ans Enzyme
 * Storybook (in Typescript)
+* Gherkin (`.feature`) testing system with gherkin-specs-api
 
 ## How to use it?
 
