@@ -24,16 +24,14 @@ class GherkinFilePreprocessor {
             featureSpec += this.formatScenarioTemplateWithSamples(scenario, scenarioTemplate);
         });
 
-        let impl = this.getFeatureImpl(feature, file);
+        let impl = this.getFeatureFileImpl(feature, file);
         if (impl !== null) {
             return `
-            import * as __featureFileImpl from '${impl.fileImpl}';
-            import * as api from 'gherkin-specs-api';
-            ${featureSpec};
-            api.featureRunner().run();
+                import '${impl.slice(0, -3)}';
+                ${featureSpec};
+                gherkinApi.featureRunner().run();
             `;
         }
-        
         return `xit("", () => {})`;
     }
 
@@ -149,7 +147,7 @@ class GherkinFilePreprocessor {
             var paths = filename.split(path.sep);
             paths.pop();
             var fullImplPath = paths.join(path.sep) + path.sep + fileImpl;
-            let testContent = fs.readFileSync(fullImplPath);
+            let testContent = fs.readFileSync(fullImplPath, 'utf-8');
             return {
                 filename: fullImplPath,
                 src: testContent,
@@ -157,6 +155,23 @@ class GherkinFilePreprocessor {
             };
         }
         return null;
+    }
+
+    getFeatureFileImpl(feature, filename) {
+        let source = feature.tags.filter((tag) => {
+            return tag.name.startsWith('@source ');
+        }).map(x => x.name);
+        if (source.length > 0 && source[0].split(' ').length > 1){
+            let fileImpl = source[0].split(' ')[1];
+            return fileImpl;
+        }
+        return this.getLocalUrl(filename);
+    }
+
+    getLocalUrl(filename) {
+        const dirs = filename.split(path.sep);
+        const file = dirs[dirs.length-1];
+        return `./${file}.impl.ts`;
     }
 }
 

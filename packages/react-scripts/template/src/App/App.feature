@@ -1,4 +1,4 @@
-@source App.feature.impl.ts
+@source ./App.feature.impl.ts
 Feature: descriptive text of what is desired
 
   Scenario: Some determinable business sitsuation
