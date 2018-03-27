@@ -6,8 +6,8 @@ import { createEpicMiddleware } from 'redux-observable';
 
 import configureStore, { MockStore } from 'redux-mock-store';
 import 'rxjs/Rx';
-import epic from './App.epic';
-import { PLAY, GET_TIME } from '.';
+import epic from './today.epic';
+import { PLAY, GET_TIME } from './today.actions';
 
 configure({ adapter: new Adapter() });
 
@@ -25,7 +25,8 @@ describe('Epic', () => {
     });
 
     test('Dispatch played when launched', () => {
-        store.dispatch({ type: PLAY });
+        store = mockStore();
+        store.dispatch({type: PLAY});
         jest.runOnlyPendingTimers();
         expect(store.getActions()).toEqual([
             { type: PLAY },

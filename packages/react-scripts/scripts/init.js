@@ -51,7 +51,9 @@ module.exports = function(
       "!src/**/*.d.ts",
       "!src/**/*.stories.tsx",
       "!src/**/*.impl.ts?(x)",
-      "!src/store/**/*.*",
+      "!src/store/**/index.ts",
+      "!src/store/epic.ts",
+      "!src/store/reducer.ts",
       "!src/index.tsx",
       "!src/registerServiceWorker.ts"
     ]
@@ -140,12 +142,12 @@ module.exports = function(
     '@types/react-redux',
     '@types/recompose',
     '@types/redux',
-    '@types/redux-mock-store',
+    '@types/redux-mock-store@0.0.12',
     'enzyme',
     'jest-enzyme',
     'enzyme-adapter-react-16',
     'react-test-renderer',
-    'redux-mock-store'
+    'redux-mock-store@1.4.0'
   ];
 
   console.log(`Installing other dependencies ${command}...`);

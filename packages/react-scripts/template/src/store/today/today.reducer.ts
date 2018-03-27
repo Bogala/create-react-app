@@ -1,6 +1,6 @@
 import * as moment from 'moment';
 import { Action } from 'redux';
-import { GET_TIME } from '.';
+import { GET_TIME } from './today.actions';
 
 export default (state: moment.Moment = moment(), action: Action) => {
     switch (action.type) {

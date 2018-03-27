@@ -1,7 +1,4 @@
 import './App.scss';
-import App from './App';
-
-export const PLAY = 'PLAY';
-export const GET_TIME = 'TIME';
+import App from './App.container';
 
 export default App;
