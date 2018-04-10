@@ -1,7 +1,7 @@
 @source ./App.feature.impl.ts
-Feature: descriptive text of what is desired
+Feature: Show current date and time
 
-  Scenario: Some determinable business sitsuation
-    Given some precondition
-     When some action by the actor
-     Then some testable outcomee is here
+  Scenario: My title show time to the second
+    Given I am on the application
+     When I wait some ticks
+     Then Time as changed 

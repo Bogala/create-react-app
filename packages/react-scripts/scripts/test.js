@@ -48,6 +48,8 @@ if (argv.indexOf('--withoutScenario') < 0) {
     relativePath => path.resolve(__dirname, '..', relativePath),
     path.resolve(paths.appSrc, '..')
   );
+} else {
+  argv.splice(argv.indexOf('--withoutScenario'), 1);
 }
 argv.push(
   '--config',

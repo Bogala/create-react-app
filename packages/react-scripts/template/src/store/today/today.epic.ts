@@ -8,7 +8,7 @@ import { PLAY, GET_TIME } from './today.actions';
 const play = (action$: ActionsObservable<Action>, store: Store<{}>, { }) =>
     action$.ofType(PLAY)
         .switchMap(() =>
-            Observable.interval(1000)
+            Observable.interval(500)
                 .mapTo({type: GET_TIME})
         );
 
