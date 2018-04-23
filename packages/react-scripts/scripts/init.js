@@ -123,7 +123,7 @@ module.exports = function(
     argsPlus = ['install', '--save', verbose && '--verbose'].filter(e => e);
   }
   args.push('react', 'react-dom');
-  argsPlus.push('recompose', 'redux', 'react-redux', 'rxjs', 'redux-observable', 'moment');
+  argsPlus.push('recompose', 'redux@3.7.2', 'react-redux', 'rxjs', 'redux-observable', 'moment');
 
   // Install dev dependencies
   const types = [

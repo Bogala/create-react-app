@@ -9,14 +9,12 @@ This is a scripts version of [Create React App](https://github.com/facebookincub
 * Gherkin (`.feature`) testing system with gherkin-specs-api
 * Redux and redux-observable
 
-
 ## How to use it?
 
 Launch this command (npm 5.3 or more needed) :
 ``` shell
-$ npx create-react-app my-awesome-app --scripts-version=react-ats-scripts
+$ npx create-react-app my-app --scripts-version=react-ats-scripts
 ```
-
 
 # react-scripts
 
