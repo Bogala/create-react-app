@@ -123,32 +123,43 @@ module.exports = function(
     argsPlus = ['install', '--save', verbose && '--verbose'].filter(e => e);
   }
   args.push('react', 'react-dom');
-  argsPlus.push('recompose', 'redux@3.7.2', 'react-redux', 'rxjs@5.5.9', 'redux-observable', 'moment');
+  //argsPlus.push('recompose@0.26.0', 'redux@3.7.2', 'react-redux@5.0.7', 'rxjs@5.5.9', 'redux-observable@0.18.0', 'moment@2.22.0');
+
+  const newDeps = [
+    "moment",
+    "react-redux@5.0.7",
+    "recompose@0.26.0",
+    "redux@3.7.2",
+    "redux-observable@0.18.0",
+    "rxjs@5.5.9"
+  ];
+
+  argsPlus.push(...newDeps);
 
   // Install dev dependencies
   const types = [
-    '@storybook/addon-actions',
-    '@storybook/addon-knobs',
-    '@storybook/addon-links',
-    '@storybook/react',
-    '@types/enzyme',
-    '@types/enzyme-adapter-react-16',
-    '@types/jest',
-    '@types/node',
-    '@types/react@ts2.7',
-    '@types/react-dom@ts2.7',
-    '@types/react-test-renderer',
-    '@types/storybook__addon-knobs',
-    '@types/storybook__react',
-    '@types/react-redux',
-    '@types/recompose',
-    '@types/redux',
-    '@types/redux-mock-store@0.0.12',
-    'enzyme',
-    'jest-enzyme',
-    'enzyme-adapter-react-16',
-    'react-test-renderer',
-    'redux-mock-store@1.4.0'
+    "@storybook/addon-actions@3.4.1",
+    "@storybook/addon-knobs@3.4.1",
+    "@storybook/addon-links@3.4.1",
+    "@storybook/react@3.4.1",
+    "@types/enzyme@3.1.9",
+    "@types/enzyme-adapter-react-16@1.0.2",
+    "@types/jest@22.2.3",
+    "@types/node@9.6.4",
+    "@types/react",
+    "@types/react-dom",
+    "@types/react-redux@5.0.16",
+    "@types/react-test-renderer@16.0.1",
+    "@types/recompose@0.24.7",
+    "@types/redux@3.6.0",
+    "@types/redux-mock-store@0.0.12",
+    "@types/storybook__addon-knobs@3.3.1",
+    "@types/storybook__react@3.0.7",
+    "enzyme@3.3.0",
+    "enzyme-adapter-react-16@1.1.1",
+    "jest-enzyme@6.0.0",
+    "react-test-renderer@16.3.1",
+    "redux-mock-store@1.4.0"
   ];
 
   console.log(`Installing other dependencies ${command}...`);
