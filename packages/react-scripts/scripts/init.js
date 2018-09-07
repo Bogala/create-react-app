@@ -19,6 +19,10 @@ const path = require('path');
 const chalk = require('chalk');
 const spawn = require('react-dev-utils/crossSpawn');
 
+const consoleLog = (info) => {
+  console.log(info);
+}
+
 module.exports = function(
   appPath,
   appName,
@@ -269,6 +273,8 @@ module.exports = function(
   }
   console.log();
   console.log('Happy hacking!');
+
+  consoleLog(appPackage);
 };
 
 function isReactInstalled(appPackage) {
