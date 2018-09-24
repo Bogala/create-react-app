@@ -3,10 +3,9 @@
 ## What is react-ats-scripts ?
 This is a scripts version of [Create React App](https://github.com/facebookincubator/create-react-app) with:
 * TypeScript (by awesome-typescript-loader)
-* Sass
+* Sass / Scss
 * Unit testing with Jest ans Enzyme
-* Storybook (in Typescript)
-* Gherkin (`.feature`) testing system with gherkin-specs-api
+* Gherkin (`.feature`) testing system with jest-cucumber
 * Redux and redux-observable
 
 
